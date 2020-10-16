@@ -1,0 +1,43 @@
+// Colors
+:root {
+  --accent: #f5e1c5;
+
+  --bg-primary: #fffdfb;
+  --bg-intermediate: #2d1800;
+  --bg-secondary: var(--accent);
+  --bg-navbar: #2d1800;
+
+  --hover-navlink: #ffca81;
+  --icon-dark: var(--clr-primary);
+  --icon-light: var(--accent);
+
+  --clr-primary: #835541;
+  --clr-primary-light: #ceb590;
+  --clr-secondary: #000000;
+  --white: #fff;
+
+  --box-shadow-img: var(--accent);
+  --border-light: var(--clr-primary-light);
+  --border-dark: var(--clr-primary);
+  --underline: var(--clr-primary);
+}
+
+// Font Weights
+$fontWeights: (
+  e-light: 200,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  semi-bold: 600,
+  bold: 700,
+  e-bold: 800,
+  black: 900,
+);
+
+@function fw($fwName) {
+  @return map-get($fontWeights, $fwName);
+}
+
+// Font Family
+$mulish: "Mulish", cursive;
+$lilita: "Lilita One", sans-serif;

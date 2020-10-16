@@ -1,0 +1,153 @@
+@mixin underline-link {
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0.2rem;
+    bottom: -0.5rem;
+    height: 0.2rem;
+    width: 25%;
+    background: var(--underline);
+    border-radius: 2rem;
+    transition: opacity 0.25s ease, transform 0.15s ease,
+      width 0.3s cubic-bezier(0.68, 0.05, 0.46, 1.02), left 0.2s 0.2s ease-out;
+
+    @include tablet-custom {
+      left: 0;
+      width: 102%;
+    }
+  }
+
+  &:focus {
+    outline: thin dotted;
+  }
+
+  &:after {
+    z-index: 10;
+    width: 15%;
+    background: var(--bg-primary);
+    opacity: 0;
+  }
+
+  &:hover:after {
+    opacity: 1;
+    left: 102%;
+
+    @include tablet-custom {
+      opacity: 0;
+    }
+  }
+
+  &:hover:before {
+    width: 100%;
+  }
+}
+
+@mixin btn-primary {
+  color: var(--clr-primary);
+  font-family: $mulish;
+  font-size: 1.6em;
+  font-weight: fw(bold);
+  background: none;
+  border: 0;
+  box-shadow: inset 0 0 0 0.1rem var(--border-light);
+  padding: 1rem 1.5rem;
+  position: relative;
+  white-space: nowrap;
+  user-select: none;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 1;
+
+  &:before,
+  &:after {
+    box-sizing: inherit;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:before,
+  &:after {
+    border: 0.2rem solid transparent;
+    width: 0;
+    height: 0;
+  }
+
+  &:before {
+    top: 0;
+    left: 0;
+  }
+
+  &:after {
+    bottom: 0;
+    right: 0;
+  }
+
+  &:hover:before,
+  &:hover:after,
+  &:focus:before,
+  &:focus:after {
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover:before,
+  &:focus:before {
+    border-top-color: var(--border-dark);
+    border-right-color: var(--border-dark);
+    transition: width 0.1s ease-out, height 0.15s ease-out 0.15s;
+  }
+
+  &:hover:after,
+  &:focus:after {
+    border-bottom-color: var(--border-dark);
+    border-left-color: var(--border-dark);
+    transition: border-color 0s ease-out 0.3s, width 0.15s ease-out 0.3s,
+      height 0.15s ease-out 0.45s;
+  }
+}
+
+//*Media Queries
+@mixin desktop {
+  //* 1024px
+  @media (max-width: 64em) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  //* 768px
+  @media (max-width: 48em) {
+    @content;
+  }
+}
+
+@mixin tablet-custom {
+  //* 620px
+  @media (max-width: 38.75em) {
+    @content;
+  }
+}
+
+@mixin mobileL {
+  //* 575px
+  @media (max-width: 35.9375em) {
+    @content;
+  }
+}
+
+@mixin mobileM {
+  //* 375px
+  @media (max-width: 23.4375em) {
+    @content;
+  }
+}
+
+@mixin mobileS {
+  //* 320px
+  @media (max-width: 20em) {
+    @content;
+  }
+}

@@ -1,0 +1,77 @@
+.navbar {
+  background: var(--bg-intermediate);
+  width: 10rem;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+
+  @include tablet {
+    width: 100%;
+    height: 6rem;
+  }
+
+  ul {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    @include tablet {
+      flex-direction: row;
+      width: 100%;
+    }
+
+    .nav-item {
+      transform: scale(0);
+      opacity: 0;
+      .nav-link {
+        color: var(--accent);
+        font-family: $lilita;
+        font-size: 1.8rem;
+        letter-spacing: 0.1rem;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        transition: all 0.25s ease;
+
+        svg {
+          margin-bottom: 0.5rem;
+
+          @include tablet {
+            width: 2.4rem;
+            height: 2.4rem;
+          }
+
+          path {
+            fill: var(--accent);
+            transition: all 0.25s ease;
+          }
+        }
+
+        &:hover svg path {
+          fill: var(--hover-navlink);
+        }
+
+        &:hover {
+          color: var(--hover-navlink);
+          outline: none;
+        }
+
+        &.active {
+          color: var(--hover-navlink);
+          outline: none;
+
+          svg path {
+            fill: var(--hover-navlink);
+          }
+        }
+      }
+    }
+  }
+}

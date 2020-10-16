@@ -1,0 +1,115 @@
+.projects {
+  max-width: 86rem;
+  width: 90%;
+  margin: 0 auto;
+
+  .projects-title {
+    margin: 15rem 0 10rem;
+
+    @include tablet {
+      margin: 0 0 10rem;
+    }
+
+    h1,
+    h2 {
+      font-family: $lilita;
+    }
+
+    h1 {
+      color: var(--clr-primary);
+      font-size: 3.6rem;
+    }
+    h2 {
+      color: var(--clr-primary-light);
+      font-size: 2.4rem;
+    }
+  }
+
+  .projects-wrap {
+    & > *:not(:last-child) {
+      margin-bottom: 15rem;
+    }
+    .project {
+      display: flex;
+      align-items: center;
+
+      @include tablet-custom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      &:nth-of-type(2) {
+        @include tablet-custom {
+          flex-direction: column-reverse;
+        }
+      }
+
+      .project-img {
+        display: inline-block;
+        box-shadow: 0.5rem 0.5rem 3rem var(--box-shadow-img);
+        border-radius: 1rem;
+        width: 100%;
+        transition: all 0.25s ease;
+      }
+
+      .project-desc {
+        margin-left: 4rem;
+
+        @include tablet-custom {
+          margin: 2rem 0 0 0;
+        }
+        h1 {
+          color: var(--clr-secondary);
+          font-size: 2.4rem;
+          font-family: $mulish;
+          font-weight: fw(black);
+        }
+
+        p {
+          font-size: 1.6rem;
+          font-weight: fw(regular);
+          line-height: 2rem;
+          margin: 1rem 0 2.5rem;
+          width: 80%;
+
+          @include tablet-custom {
+            width: 100%;
+          }
+        }
+
+        .view-project-btn {
+          @include underline-link;
+
+          display: inline-block;
+          color: var(--clr-primary);
+          font-weight: fw(e-bold);
+          font-size: 1.6rem;
+          position: relative;
+        }
+      }
+    }
+  }
+
+  .view-more {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10rem;
+
+    .view-more-btn {
+      @include btn-primary;
+      display: flex;
+      align-items: center;
+    }
+
+    svg {
+      width: 2.4rem;
+      height: 2.4rem;
+      margin-left: 1rem;
+
+      path {
+        fill: var(--icon-dark);
+      }
+    }
+  }
+}

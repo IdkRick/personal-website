@@ -1,0 +1,115 @@
+html {
+  font-size: 62.5%;
+
+  @include tablet {
+    font-size: 56.25%;
+
+    @include mobileL {
+      font-size: 50%;
+    }
+  }
+}
+
+body::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--clr-primary);
+  border-radius: 1rem;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--clr-secondary);
+  font-family: $mulish;
+  text-rendering: optimizeSpeed;
+  overflow: hidden;
+}
+
+::selection {
+  background: var(--clr-primary);
+  color: var(--white);
+}
+
+.main-wrapper {
+  margin-left: 10rem;
+  position: relative;
+  overflow-x: hidden;
+
+  @include tablet {
+    margin: 6rem 0 0 0;
+  }
+}
+
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  margin-left: 10rem;
+  background: var(--bg-intermediate);
+  z-index: 1000;
+
+  @include tablet {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 6rem;
+  }
+
+  .loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    z-index: 1001;
+
+    .loader-outter {
+      position: absolute;
+      border: 4px solid var(--accent);
+      border-left-color: transparent;
+      border-bottom: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      animation: loader-outter 1s cubic-bezier(0.42, 0.61, 0.58, 0.41) infinite;
+    }
+
+    .loader-inner {
+      position: absolute;
+      border: 4px solid var(--accent);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      left: calc(50% - 20px);
+      top: calc(50% - 20px);
+      border-right: 0;
+      border-top-color: transparent;
+      animation: loader-inner 1s cubic-bezier(0.42, 0.61, 0.58, 0.41) infinite;
+    }
+  }
+
+  @keyframes loader-outter {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes loader-inner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
+}

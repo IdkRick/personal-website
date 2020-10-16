@@ -1,0 +1,123 @@
+.home {
+  max-width: 86rem;
+  width: 90%;
+  height: 62.6rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+
+  @include tablet {
+    justify-content: center;
+
+    @include mobileL {
+      width: 85%;
+
+      @include mobileS {
+        width: 80%;
+      }
+    }
+  }
+
+  .about {
+    background: var(--bg-secondary);
+    border-radius: 1rem;
+    padding: 3rem 2rem;
+    margin-bottom: 10rem;
+    position: relative;
+    width: 90%;
+    text-align: justify;
+
+    @include mobileL {
+      margin-bottom: 8rem;
+    }
+
+    .hi {
+      color: var(--clr-primary);
+      font-family: $lilita;
+      font-size: 7.2rem;
+      position: absolute;
+      top: -3.2rem;
+      left: -2.15rem;
+      transform: rotate(-35deg);
+
+      &:after {
+        content: "👋🏻";
+        font-size: 4.2rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+        opacity: 0;
+        transition: all 0.5s cubic-bezier(0.5, 1.6, 0.4, 0.7), opacity 0.1s ease;
+      }
+
+      &:hover:after {
+        top: 0.2875rem;
+        right: -5.6125rem;
+        opacity: 1;
+        transform: rotate(35deg);
+      }
+
+      &.active {
+        &:after {
+          top: 0.2875rem;
+          right: -5.6125rem;
+          opacity: 1;
+          transform: rotate(35deg);
+        }
+      }
+    }
+
+    p {
+      font-size: 1.8rem;
+      line-height: 2rem;
+      font-weight: fw(regular);
+    }
+
+    & > *:not(:nth-last-of-type(1)) {
+      padding-bottom: 2rem;
+    }
+  }
+
+  .scroll-down-btn {
+    color: var(--clr-primary);
+    font-size: 2.4rem;
+    font-family: $lilita;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+
+    svg {
+      margin-right: 1rem;
+    }
+  }
+}
+
+.social {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 3rem;
+  right: 4rem;
+
+  @include tablet {
+    display: none;
+  }
+
+  & > *:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+
+  svg path {
+    fill: var(--icon-light);
+    transition: all 0.25s ease;
+  }
+
+  a:hover svg path,
+  a:focus svg path {
+    fill: var(--icon-dark);
+  }
+}
